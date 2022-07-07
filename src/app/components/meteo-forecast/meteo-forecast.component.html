@@ -1,2 +1,7 @@
 <h1>METEO</h1>
-<app-temperature *ngFor="let  forecast of forecastArray" [selectedTemperature]="forecast"></app-temperature>
+<app-cities (onCityClicked)="cerca($event)"  ></app-cities>
+<div>
+    <div class="container">
+        <app-temperature *ngFor="let  forecast of forecastArray" [selectedTemperature]="forecast"></app-temperature>
+    </div>
+</div>

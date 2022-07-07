@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Data } from '@angular/router';
 import { map, Observable, retry } from 'rxjs';
+import { City } from '../model/city';
 import { HourlyForecast } from '../model/weather';
 
 @Injectable({
@@ -11,13 +12,14 @@ import { HourlyForecast } from '../model/weather';
 })
 export class MeteoService {
 
-  private readonly BASE_URL = "https://api.open-meteo.com/v1/forecast?latitude=41.8955&longitude=12.4823&hourly=temperature_2m,relativehumidity_2m,rain,weathercode,cloudcover,windspeed_10m,winddirection_10m&timezone=Europe%2FBerlin"
+  private readonly BASE_URL = "https://api.open-meteo.com/v1/forecast?hourly=temperature_2m,relativehumidity_2m,rain,weathercode,cloudcover,windspeed_10m,winddirection_10m&timezone=Europe%2FBerlin"
 
   constructor(private http: HttpClient ) { 
   }
   
-  getWeather() {
-    return this.http.get<HourlyForecast[]>(this.BASE_URL).pipe(
+  getWeather(city?: City) {
+    const cityUrl = city ? "&latitude="+city.latitude+"&longitude="+city.longitude : "" 
+    return this.http.get<HourlyForecast[]>(this.BASE_URL+cityUrl).pipe(
       map(data => this.parserMeteoData(data))
       );
     }
