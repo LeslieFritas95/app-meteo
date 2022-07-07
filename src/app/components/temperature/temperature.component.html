@@ -1,0 +1,13 @@
+<div *ngIf="selectedTemperature">
+    <div class="container"> 
+        <img src="{{forecast.code | codeIcon" alt="">
+        <span> Temperatura: {{selectedTemperature.temperature}}</span>
+        <span>Data: {{selectedTemperature.date}}</span>
+        <span>Umidità: {{selectedTemperature.humidity}}</span>
+        <span>Pioggia: {{selectedTemperature.rain}}</span>
+        <span>Incone meteo:{{selectedTemperature.code}}</span>
+        <span>Coperto: {{selectedTemperature.cloudCover}}</span>
+        <span>Velocità vento: {{selectedTemperature.windSpeed}}</span>
+        <span>Direzione vento: {{selectedTemperature.windDiretion}}</span>
+    </div>
+</div>
