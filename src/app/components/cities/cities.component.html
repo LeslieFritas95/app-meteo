@@ -1,0 +1,7 @@
+<div>
+    <input [(ngModel)]="filter" name="cerca" />
+    <button (click)="cerca()">cerca</button>
+    <div *ngFor="let  city of citiesArray" (click)="cercaMeteo(city)" >
+        {{city.name}}
+    </div>
+</div>

@@ -7,18 +7,22 @@ import { AppComponent } from './app.component';
 import { MeteoForecastComponent } from './components/meteo-forecast/meteo-forecast.component';
 import { TemperatureComponent } from './components/temperature/temperature.component';
 import { CodeIconPipe } from './components/pipes/code-icon/code-icon.pipe';
+import { FormsModule } from '@angular/forms';
+import { CitiesComponent } from './components/cities/cities.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MeteoForecastComponent,
     TemperatureComponent,
-    CodeIconPipe
+    CodeIconPipe,
+    CitiesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
